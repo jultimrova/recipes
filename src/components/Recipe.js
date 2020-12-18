@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Recipe = () => {
-    return <>
-        <h3>Title</h3>
-        <p>Calories</p>
-        <img src="" alt="recipe"/>
-    </>
+const Recipe = ({title, calories, img}) => {
+    return <div className='recipe'>
+        <h3>{title}</h3>
+        <p>Calories: {calories}</p>
+        <img src={img} alt="recipe"/>
+    </div>
 }
 
 export default Recipe

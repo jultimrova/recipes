@@ -28,7 +28,12 @@ const App = () => {
                             onClick={() => console.log('submit')}>Search
                     </button>
                 </form>
-                <Recipe/>
+                {recipes.map(({recipe}, index) => {
+                    return <Recipe key={index}
+                                   title={recipe.label}
+                                   calories={recipe.calories}
+                                   img={recipe.image}/>
+                })}
             </div>
         </div>
     );
