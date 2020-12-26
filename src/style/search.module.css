@@ -1,0 +1,26 @@
+.search {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar, .searchBtn {
+    padding: 10px 50px;
+    border: 1px solid #6b756d;
+    background-color: #e5e4ff;
+}
+
+.searchBtn {
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.searchBtn:hover {
+    background-color: #c0dbfd;
+    cursor: pointer;
+}

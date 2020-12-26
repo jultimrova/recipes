@@ -1,11 +1,16 @@
 import React from 'react'
-import IngredientList from "./IngredientList";
+import IngredientList from './IngredientList'
+import style from '../style/recipe.module.css'
 
-const Recipe = ({title, calories, img, ingredients}) => {
-    return <div className='recipe'>
-        <h3>{title}</h3>
-        <p>Calories: {calories}</p>
-        <img src={img} alt="recipe-img"/>
+const Recipe = ({title, calories, image, ingredients}) => {
+    const formatCalories = data => {
+        return data.toFixed(2)
+    }
+
+    return <div className={style.recipe}>
+        <h3 className={style.recipeName}>{title}</h3>
+        <img className={style.recipeImg} src={image} alt='recipe-img'/>
+        <p>Calories: {formatCalories(calories)}</p>
         <IngredientList ingredients={ingredients}/>
     </div>
 }

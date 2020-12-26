@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import './App.css';
-import Recipe from "./components/Recipe";
+import './App.css'
+import RecipeList from './components/RecipeList'
+import Search from './components/Search'
 
 const App = () => {
     const API_ID = '48f158c7'
@@ -12,18 +13,17 @@ const App = () => {
     useEffect(() => {
         getRecipes()
         console.log('run request')
+        console.log(recipes)
     }, [query])
 
     const getRecipes = async () => {
         const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${API_ID}&app_key=${API_KEY}`)
         const data = await response.json()
         setRecipes(data.hits)
-        console.log(recipes)
     }
 
     const updateSearch = e => {
         setSearch(e.target.value)
-        console.log(search)
     }
 
     const getSearch = e => {
@@ -31,27 +31,16 @@ const App = () => {
         setQuery(search)
         setSearch('')
     }
+
     return (
-        <div className="App">
-            <div className="search">
-                <form className='search__form' onSubmit={getSearch}>
-                    <input className='search__bar' type="text" value={search} onChange={updateSearch}/>
-                    <button className='search__btn'
-                            type='submit'
-                    >Search
-                    </button>
-                </form>
-                {recipes.map(({recipe}, index) => {
-                    return <Recipe key={index}
-                                   title={recipe.label}
-                                   calories={recipe.calories}
-                                   img={recipe.image}
-                                   ingredients={recipe.ingredients}
-                    />
-                })}
-            </div>
+        <div className='wrapper'>
+            <h1 className='heading'>Recipes</h1>
+            <Search searchResult={search}
+                    updateSearch={updateSearch}
+                    getSearch={getSearch}/>
+            <RecipeList recipes={recipes}/>
         </div>
     );
 }
 
-export default App;
+export default App

@@ -1,0 +1,25 @@
+.recipeList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.recipe {
+    width: 30%;
+    padding: 0 10px;
+    margin: 10px 0;
+    background-color: #e5e4ff;
+    border-radius: 10px;
+}
+
+.recipeName {
+    font-family: 'Redressed', cursive;
+    text-align: center;
+    font-size: 30px;
+}
+
+.recipeImg {
+    width: 80%;
+    margin: 0 auto;
+}

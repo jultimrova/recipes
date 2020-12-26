@@ -1,4 +1,12 @@
 .ingredientImg {
-    width: 20%;
-    height: 20%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ingredientItem {
+    display: grid;
+    grid-template-columns: 30% auto;
+    align-items: center;
+    margin: 10px 0;
 }
